@@ -50,9 +50,10 @@ namespace UnityLesson_CSharp_DiceGame
             {
                 int diceValue = RollADice();
                 currentDiceNumber--;   // 주사위를 돌리고 남은 개수 차감
-                currentTileIndex += diceValue;  
+                currentTileIndex += diceValue;  // 눈금만큼 전진
 
-                // 플레이어가 샛별칸을 지날때 (5의 배수칸을 지날때)
+                // 플레이어가 샛별칸을 지날때 (5의 배수칸을 지날때) 지난칸과 현재칸 을 5로 나눈값을 비교하면 샛별칸을 지났는지 알 수있다.
+
                 if (previousTileIndex / 5 < currentTileIndex / 5)
                 {
                     int passedStartTileIndex = CalcPassedStarTileIndex(currentTileIndex); // 지나온 샛별칸 번호 계산
@@ -62,8 +63,9 @@ namespace UnityLesson_CSharp_DiceGame
                     {
                         currentStarPoint += passedStarTileInfo_Star.starValue; // 샛별점수 누적
                     }
-                }
 
+                }
+                
                 if (currentTileIndex > totalTile) // 현재칸이 최대칸을 넘어가 버렸을때
                 {
                     currentTileIndex -= totalTile; // 현재칸에다가 최대칸 을 뺀다.
@@ -71,19 +73,40 @@ namespace UnityLesson_CSharp_DiceGame
 
                 TileInfo info = map.dic_tile.GetValueOrDefault(currentTileIndex); // map 에서 현재칸의 TileInfo 를 가져옴.
                 if (info == null) // 현재칸의 TileInfo 를 가져오지 못했을때는 프로그램을 강제종료한다.
+                {
+                    Console.WriteLine($"fail read TileInput{currentTileIndex}");
                     return;
+                }
                 Console.WriteLine($"Tile Index : {currentTileIndex}"); // 현재 칸의 번호 출력
                 string tileMapName = info.name; // 현재 칸의 이름
                 switch (tileMapName) // 현재칸의 이름에 따른 분기문
                 {
                     case "Dummy":
+                        info.TileEvent();
                         break;
                     case "Star":
+                        TileInfo_Star infoStar = info as TileInfo_Star;
+                        if(infoStar != null)
+                        {
+                            info.TileEvent();
+                        }
+                        else
+                        {
+                            Console.WriteLine("Map has an error, Exit game");
+                            return;
+                        }
                         break;
                     default:
                         return;
                 }
+                previousTileIndex = currentTileIndex;
+
+                Console.WriteLine($"Current Star Point :  { currentStarPoint}" );
+                Console.WriteLine($"남은 주사위 개수 : {currentDiceNumber}");
+
             }
+            Console.WriteLine($"Finished! You Got total {currentStarPoint}");
+            
 
         }
 
@@ -97,6 +120,7 @@ namespace UnityLesson_CSharp_DiceGame
             }
             random = new Random(); // 난수 생성용 인스턴스
             int diceValue = random.Next(1, 6 + 1); // 1~6 중 랜덤한 정수
+            Console.WriteLine($"주사위 눈금 : {diceValue}");
             return diceValue;
         }
 
