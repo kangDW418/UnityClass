@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "09f2ee62-8b30-476b-8bfa-f7156a2017d8": {
+      "ProjectGuid": "09f2ee62-8b30-476b-8bfa-f7156a2017d8",
+      "DisplayName": "샛별게임",
+      "ColorIndex": 0
+    },
+    "bc41013b-ab1b-4370-8836-5baecebdbe81": {
+      "ProjectGuid": "bc41013b-ab1b-4370-8836-5baecebdbe81",
+      "DisplayName": "샛별",
+      "ColorIndex": 1
+    },
+    "bdb4704e-e75d-4b1b-bb36-4320400be911": {
+      "ProjectGuid": "bdb4704e-e75d-4b1b-bb36-4320400be911",
+      "DisplayName": "Unity_CSharp_IF",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

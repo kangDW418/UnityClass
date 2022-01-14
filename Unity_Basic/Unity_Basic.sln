@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31515.178
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unity_Program", "Unity_Program\Unity_Program.csproj", "{1D8C2F1B-A076-4AE9-A0D8-FFC7AFD1C482}"
 EndProject
@@ -33,7 +33,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unity_CSharp_Inheritence", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unity_CSharp_Solid", "Unity_CSharp_Solid\Unity_CSharp_Solid.csproj", "{C00C5A72-47B4-418A-8F88-E9704EA735BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity_CSharp_delegate", "Unity_CSharp_delegate\Unity_CSharp_delegate.csproj", "{58A8B838-3E78-4089-AB4C-C1F55DAB9185}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unity_CSharp_delegate", "Unity_CSharp_delegate\Unity_CSharp_delegate.csproj", "{58A8B838-3E78-4089-AB4C-C1F55DAB9185}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityLesson_CSharp_DiceGame", "샛별\UnityLesson_CSharp_DiceGame.csproj", "{8870F3C2-9E24-4DFA-B6B0-A11443F17363}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +107,10 @@ Global
 		{58A8B838-3E78-4089-AB4C-C1F55DAB9185}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58A8B838-3E78-4089-AB4C-C1F55DAB9185}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58A8B838-3E78-4089-AB4C-C1F55DAB9185}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8870F3C2-9E24-4DFA-B6B0-A11443F17363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8870F3C2-9E24-4DFA-B6B0-A11443F17363}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8870F3C2-9E24-4DFA-B6B0-A11443F17363}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8870F3C2-9E24-4DFA-B6B0-A11443F17363}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
