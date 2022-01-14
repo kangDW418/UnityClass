@@ -81,12 +81,12 @@ namespace UnityLesson_CSharp_DiceGame
                 string tileMapName = info.name; // 현재 칸의 이름
                 switch (tileMapName) // 현재칸의 이름에 따른 분기문
                 {
-                    case "Dummy":
-                        info.TileEvent();
+                    case "Dummy": 
+                        info.TileEvent(); // 해당칸의 이벤트 실행
                         break;
                     case "Star":
-                        TileInfo_Star infoStar = info as TileInfo_Star;
-                        if(infoStar != null)
+                        TileInfo_Star infoStar = info as TileInfo_Star; // star Tile일땐 starTile의 정보를 가져오기위해 Tile_Star 형으로 강제변환 한다.
+                        if(infoStar != null) // 예외처리 ( 받아오지 못했을 때 )
                         {
                             info.TileEvent();
                         }
@@ -104,6 +104,7 @@ namespace UnityLesson_CSharp_DiceGame
                 Console.WriteLine($"Current Star Point :  { currentStarPoint}" );
                 Console.WriteLine($"남은 주사위 개수 : {currentDiceNumber}");
 
+               
             }
             Console.WriteLine($"Finished! You Got total {currentStarPoint}");
             
@@ -120,10 +121,71 @@ namespace UnityLesson_CSharp_DiceGame
             }
             random = new Random(); // 난수 생성용 인스턴스
             int diceValue = random.Next(1, 6 + 1); // 1~6 중 랜덤한 정수
-            Console.WriteLine($"주사위 눈금 : {diceValue}");
+            DisplayDice(diceValue);
             return diceValue;
         }
+        static void DisplayDice(int diceValue)
+        {
+            switch(diceValue)
+            {
+                case 1:
+                    Console.WriteLine("┌───────────┐");
+                    Console.WriteLine("│           │");
+                    Console.WriteLine("│           │");
+                    Console.WriteLine("│     ●    │");
+                    Console.WriteLine("│           │");
+                    Console.WriteLine("│           │");
+                    Console.WriteLine("└───────────┘");
+                    break;
+                case 2:
+                    Console.WriteLine("┌───────────┐");
+                    Console.WriteLine("│ ●        │");
+                    Console.WriteLine("│           │");
+                    Console.WriteLine("│           │");
+                    Console.WriteLine("│           │");
+                    Console.WriteLine("│         ●│");
+                    Console.WriteLine("└───────────┘");
+                    break;
+                case 3:
+                    Console.WriteLine("┌───────────┐");
+                    Console.WriteLine("│ ●        │");
+                    Console.WriteLine("│           │");
+                    Console.WriteLine("│     ●    │");
+                    Console.WriteLine("│           │");
+                    Console.WriteLine("│         ●│");
+                    Console.WriteLine("└───────────┘"); 
+                    break;
+                case 4:
+                    Console.WriteLine("┌───────────┐");
+                    Console.WriteLine("│ ●      ●│");
+                    Console.WriteLine("│           │");
+                    Console.WriteLine("│           │");
+                    Console.WriteLine("│           │");
+                    Console.WriteLine("│ ●      ●│");
+                    Console.WriteLine("└───────────┘");
+                    break;
+                case 5:
+                    Console.WriteLine("┌───────────┐");
+                    Console.WriteLine("│ ●      ●│");
+                    Console.WriteLine("│           │");
+                    Console.WriteLine("│     ●    │");
+                    Console.WriteLine("│           │");
+                    Console.WriteLine("│ ●      ●│");
+                    Console.WriteLine("└───────────┘");
+                    break;
+                case 6:
+                    Console.WriteLine("┌───────────┐");
+                    Console.WriteLine("│ ●      ●│");
+                    Console.WriteLine("│           │");
+                    Console.WriteLine("│ ●      ●│");
+                    Console.WriteLine("│           │");
+                    Console.WriteLine("│ ●      ●│");
+                    Console.WriteLine("└───────────┘");
+                    break;
 
+
+            }
+        }
         // 현재 칸의 번호를 넣어주면 지나온 샛별칸의 번호를 반환해주는 함수
         static public int CalcPassedStarTileIndex(int currentTileIndex)
         {
